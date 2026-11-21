@@ -8,25 +8,27 @@ Instructor: Brian Thurber
 
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;600&family=Fira+Code&display=swap');
 
+
 :root {
-    --sky-blue: #D7F0F5;
-    --deep-blue: #A8D2D6;
-    --green: #215B45;
-    --dark-green: #153F32;
-    --light-green: #D9ECD9;
-    --yellow: #FFE08A;
-    --light-yellow: #FFF5D4;
+    --sky-blue: #00CFFF;
+    --deep-blue: #009FDE;
+    --green: #005E24;
+    --dark-green: #003D1B;
+    --light-green: #00EF45;
+    --yellow: #FFD000;
+    --light-yellow: #FFEA00;
     --white: #FFFFFF;
 
     --background-color: var(--sky-blue);
-    --text-color: var(--green);
+    --text-color: var(--dark-green);
     --nav-color: var(--yellow);
-    --border-color: var(--green);
+    --border-color: var(--dark-green);
 
     --body-font: 'Comic Neue', 'Trebuchet MS', Arial, sans-serif;
     --heading-font: 'Fredoka', Verdana, Arial, sans-serif;
     --code-font: 'Fira Code', Consolas, 'Courier New', monospace;
 }
+
 
 body {
     margin: 0;
