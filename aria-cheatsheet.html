@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="thomasrotchford">
+    <meta name="description" content="Lesson 9 ARIA Cheatsheet">
+    <meta name="keywords" content="HTML, ARIA, Accessibility, Lesson 9, Webdev">
+
+    <title>ARIA Cheatsheet</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content">Skip to Main Content</a>
+
+    <section class="site-navigation">
+        <nav aria-label="Site Navigation">
+            <a href="index.html">
+                <span class="material-icons" aria-hidden="true">home</span>
+                Home
+            </a>
+
+            <a href="aria-cheatsheet.html" aria-current="page">
+                <span class="material-icons" aria-hidden="true">assignment</span>
+                Cheatsheet
+            </a>
+
+            <a href="practice/index.html">
+                <span class="material-icons" aria-hidden="true">code</span>
+                Practice Activities
+            </a>
+        </nav>
+    </section>
+
+    <header>
+        <h1>Lesson 9 Project</h1>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+        <h2>ARIA and Accessibility</h2>
+
+        <p>
+            ARIA adds information that helps screen readers understand
+            webpages. It makes websites more accesible for people with
+            disabilities.
+        </p>
+
+        <div role="tablist" aria-label="ARIA Topics">
+            <button type="button" id="roles-tab" role="tab"
+                    aria-selected="true" aria-controls="roles-panel"
+                    tabindex="0">
+                Roles
+            </button>
+
+            <button type="button" id="properties-tab" role="tab"
+                    aria-selected="false" aria-controls="properties-panel"
+                    tabindex="-1">
+                Properties
+            </button>
+
+            <button type="button" id="states-tab" role="tab"
+                    aria-selected="false" aria-controls="states-panel"
+                    tabindex="-1">
+                States
+            </button>
+        </div>
+
+        <section id="roles-panel" role="tabpanel"
+                 aria-labelledby="roles-tab" tabindex="0">
+
+            <h3>ARIA Roles</h3>
+
+            <p>
+                Roles tell screen readers what an element does.
+                There are six catagories.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Abstract Roles:</strong>
+                    Define basic role types.
+                    Examples: <code>command</code>, <code>widget</code>.
+                </li>
+
+                <li>
+                    <strong>Widget Roles:</strong>
+                    Identify interactive controls.
+                    Examples: <code>button</code>, <code>checkbox</code>.
+                </li>
+
+                <li>
+                    <strong>Document Structure Roles:</strong>
+                    Organize page content.
+                    Examples: <code>article</code>, <code>heading</code>.
+                </li>
+
+                <li>
+                    <strong>Landmark Roles:</strong>
+                    Identify important page areas.
+                    Examples: <code>main</code>, <code>navigation</code>.
+                </li>
+
+                <li>
+                    <strong>Live Region Roles:</strong>
+                    Announce changes.
+                    Examples: <code>alert</code>, <code>status</code>.
+                </li>
+
+                <li>
+                    <strong>Window Roles:</strong>
+                    Identify popup windows.
+                    Examples: <code>dialog</code>, <code>alertdialog</code>.
+                </li>
+            </ul>
+
+            <p>
+                <strong>Note:</strong>
+                ARIA standards say authors MUST NOT use abstract roles
+                in webpage content.
+            </p>
+
+            <p>
+                <a href="https://www.w3.org/TR/wai-aria-1.2/#roles_categorization">
+                    ARIA Role Standards
+                </a>
+            </p>
+
+        </section>
+
+        <section id="properties-panel" role="tabpanel"
+                 aria-labelledby="properties-tab" tabindex="0" hidden>
+
+            <h3>ARIA Properties</h3>
+
+            <p>
+                Properties give screen readers extra informtion
+                about elements.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Widget Attributes:</strong>
+                    Describe controls.
+                    <ul>
+                        <li><code>aria-autocomplete</code> - Text suggestions.</li>
+                        <li><code>aria-placeholder</code> - Input hint.</li>
+                        <li><code>aria-valuemin</code> - Minimum value.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Live Region Attributes:</strong>
+                    Describe content updates.
+                    <ul>
+                        <li><code>aria-live</code> - Announcement timing.</li>
+                        <li><code>aria-atomic</code> - Amount announced.</li>
+                        <li><code>aria-relevant</code> - Changes announced.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Drag-and-Drop Attributes:</strong>
+                    Describe dragging actions.
+                    <ul>
+                        <li><code>aria-dropeffect="copy"</code> - Copies.</li>
+                        <li><code>aria-dropeffect="move"</code> - Moves.</li>
+                        <li><code>aria-dropeffect="link"</code> - Creates links.</li>
+
+                <li>
+                    <strong>Relationship Attributes:</strong>
+                    Connect seperate elements.
+                    <ul>
+                        <li><code>aria-controls</code> - Controlled element.</li>
+                        <li><code>aria-describedby</code> - Description.</li>
+                        <li><code>aria-labelledby</code> - Label.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>
+                <a href="https://www.w3.org/TR/wai-aria-1.2/#states_and_properties_taxonomy">
+                    ARIA Property Standards
+                </a>
+            </p>
+
+        </section>
+
+        <section id="states-panel" role="tabpanel"
+                 aria-labelledby="states-tab" tabindex="0" hidden>
+
+            <h3>ARIA States</h3>
+
+            <p>
+                States show an element's current condition,
+                which can change during use.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Widget Attributes:</strong>
+                    Show control conditions.
+                    <ul>
+                        <li><code>aria-checked="true"</code> - Checked.</li>
+                        <li><code>aria-expanded="false"</code> - Closed.</li>
+                        <li><code>aria-selected="true"</code> - Selected.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Live Region Attributes:</strong>
+                    Show update progress.
+                    <ul>
+                        <li><code>aria-busy="true"</code> - Updating.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Drag-and-Drop Attributes:</strong>
+                    Show dragging status.
+                    <ul>
+                        <li>
+                            <code>aria-grabbed="true"</code> -
+                            Grabbed. Now deprecated.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Relationship Attributes:</strong>
+                    Describe connections, not states.
+                    <ul>
+                        <li>No state attributes in this category.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>
+                <a href="https://www.w3.org/TR/wai-aria-1.2/#statevsprop">
+                    ARIA State Standards
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="student-info">
+            <p>Name: Thomas Rotchford</p>
+            <p>GitHub Username: thomasrotchford</p>
+            <p>Date: 11/21/26</p>
+        </div>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('[role="tab"]');
+
+        function activateTab(selectedTab) {
+            tabs.forEach(function(tab) {
+                const isSelected = tab === selectedTab;
+
+                tab.setAttribute('aria-selected', isSelected);
+                tab.tabIndex = isSelected ? 0 : -1;
+
+                const panel = document.getElementById(
+                    tab.getAttribute('aria-controls')
+                );
+
+                panel.hidden = !isSelected;
+            });
+        }
+
+        tabs.forEach(function(tab, index) {
+            tab.addEventListener('click', function() {
+                activateTab(tab);
+            });
+
+            tab.addEventListener('keydown', function(event) {
+                let newIndex = index;
+
+                if (event.key === 'ArrowRight') {
+                    newIndex = (index + 1) % tabs.length;
+                } else if (event.key === 'ArrowLeft') {
+                    newIndex = (index - 1 + tabs.length) % tabs.length;
+                } else if (event.key === 'Home') {
+                    newIndex = 0;
+                } else if (event.key === 'End') {
+                    newIndex = tabs.length - 1;
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
+                tabs[newIndex].focus();
+                activateTab(tabs[newIndex]);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
